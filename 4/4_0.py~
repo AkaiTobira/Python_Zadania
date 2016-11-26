@@ -1,0 +1,9 @@
+X = "qwerty"
+
+def func():
+ 	global X
+  	X = "abc"
+	print X
+
+func()
+print X

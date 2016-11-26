@@ -1,0 +1,1 @@
+Rezpozytoriom zawiera zadania z kursu Języka Pyhon
