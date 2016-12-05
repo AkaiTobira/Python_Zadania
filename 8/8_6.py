@@ -26,7 +26,7 @@ def recursive(i,j):
 	elif j > 0 and i == 0:
 		return 0.0
 	elif i > 0 and j > 0:
-		return  0.5 * ( some(i-1,j) + some(i,j-1))
+		return  0.5 * ( recursive(i-1,j) + recursive(i,j-1))
 
 L = []
 A_start = time.time()
