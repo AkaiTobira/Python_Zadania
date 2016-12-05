@@ -33,7 +33,7 @@ A_start = time.time()
 for i in range(10):
 	L.append([])
 	for j in range(21):
-		L[i].append(some(i,j))
+		L[i].append(recursive(i,j))
 A_stop = time.time()
 
 print A_stop - A_start #12.1884829998  for 210 
@@ -44,7 +44,7 @@ A_start = time.time()
 for i in range(1000):
 	L.append([])	
 	for j in range(6000):
-		L[i].append(TnT(i,j))
+		L[i].append(dynamical(i,j))
 A_stop = time.time()
 
 print  A_stop - A_start #11.680314064 for 6000000
