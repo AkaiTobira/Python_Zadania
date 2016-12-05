@@ -3,7 +3,7 @@ P = { (0,0) : 0.5 }
 
 import time
 
-def TnT(i,j):
+def dynamical(i,j):
 	global P
 	if (i,j) not in P:
 		if i > 0 and j == 0:
@@ -13,12 +13,12 @@ def TnT(i,j):
 			P[(i,j)] = 0.0
 			return P[(i,j)]
 		elif i > 0 and j > 0:
-			P[(i,j)] = 0.5 * ( TnT(i-1,j) + TnT(i,j-1))
+			P[(i,j)] = 0.5 * ( dynamical(i-1,j) + dynamical(i,j-1))
 			return P[(i,j)]
 	else :
 		return P[(i,j)]
 
-def some(i,j):
+def recursive(i,j):
 	if i == 0 and j == 0:
 		return 0.5
 	elif i > 0 and j == 0:

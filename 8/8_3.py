@@ -17,8 +17,8 @@ def calc_pi(n=100):
 	if x**2 + y**2 <= 1:
 	     nk += 1
 
-    print 4.0*float(nk)/n
+    return 4.0*float(nk)/n
 
-    pass
+   
 
-calc_pi(1000000)
+print calc_pi(1000000)

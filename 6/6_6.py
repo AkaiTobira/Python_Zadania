@@ -25,7 +25,12 @@ class Poly:
 		return other
 	elif other.is_zero():
 		return self
-	return [x+y for (x,y) in itertools.izip_longest(self.a, other.a, fillvalue=0 )]
+	L = [x+y for (x,y) in itertools.izip_longest(self.a, other.a, fillvalue=0 )]
+	Pol = Poly()
+	Pol.size = len(L)
+	Pol.a = L
+	return Pol
+	
 
     def __sub__(self, other):   # poly1 - poly2
 	if self.is_zero() and other.is_zero():
@@ -34,8 +39,13 @@ class Poly:
 		return other
 	elif other.is_zero():
 		return self
-		
-	return [x-y for (x,y) in itertools.izip_longest(self.a, other.a, fillvalue=0 )]
+	
+	L = [x-y for (x,y) in itertools.izip_longest(self.a, other.a, fillvalue=0 )]
+	Pol = Poly()
+	Pol.size = len(L)
+	Pol.a = L
+	return Pol
+
 
     def __mul__(self, other):  # poly1 * poly2
          L = [0]*(self.size+other.size-1)
@@ -50,7 +60,11 @@ class Poly:
 	return self
 
     def __neg__(self):          # -poly1 = (-1)*poly1
-	return [self.a[x]*-1 for x in range(self.size)]
+	L = [self.a[x]*-1 for x in range(self.size)]
+	Pol = Poly()
+	Pol.size = len(L)
+	Pol.a = L
+	return Pol
 
     def __eq__(self, other):    # obsługa poly1 == poly2
 	if self.size != other.size :
@@ -96,7 +110,7 @@ class Poly:
 	K = Poly(len(L),0)
 	K.size = len(L)
 	K.a = L
-	return L
+	return K
 
 
     def integrate(self):        # całkowanie
@@ -106,7 +120,7 @@ class Poly:
 	K = Poly(len(L),0)
 	K.size = len(L)
 	K.a = L
-	return L
+	return K
 
     def is_zero(self):          # bool, True dla [0], [0, 0],...
 	for i in range(self.size):

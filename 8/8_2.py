@@ -49,4 +49,4 @@ for i in range(-15,16,1):
 			print i,j,k, solve3(i,j,k)
 			
 
-
+print solve3(-2,2,-2)

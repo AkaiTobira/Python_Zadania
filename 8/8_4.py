@@ -13,4 +13,4 @@ def heron(a, b, c):
     else:
 	raise ValueError
 
-heron(254,123,152)
+print heron(254,123,152)
