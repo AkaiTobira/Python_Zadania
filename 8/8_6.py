@@ -36,7 +36,7 @@ for i in range(10):
 		L[i].append(recursive(i,j))
 A_stop = time.time()
 
-print A_stop - A_start #12.1884829998  for 210 
+print A_stop - A_start, "for", "210"
 
 
 L = []
@@ -47,5 +47,5 @@ for i in range(1000):
 		L[i].append(dynamical(i,j))
 A_stop = time.time()
 
-print  A_stop - A_start #11.680314064 for 6000000
+print  A_stop - A_start , "for", "6000000"
 
