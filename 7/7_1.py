@@ -9,6 +9,8 @@ class Frac:
 	def __init__(self, x=0, y=1):
 		# Sprawdzamy, czy y=0.
 		"""Funkcja inicjująca"""
+		if y == 0 :
+			raise ZeroDivisionError
 		self.x = x
 		self.y = y
 
@@ -136,7 +138,11 @@ import unittest
 class TestFractions(unittest.TestCase):
 
 	def setUp(self):
-		self.zero = Frac(0, 1)
+		self.zero = Frac(0, 1)	
+
+	def test_init(self):
+		self.assertEqual( str(Frac(2,7)), "2/7" )
+		self.assertRaises(ZeroDivisionError, Frac,0,0)
 
 	def test_str(self):
 		self.assertEqual(str(Frac(3,8)), "3/8")
@@ -207,7 +213,7 @@ class TestFractions(unittest.TestCase):
 	def test_float(self): 
 		self.assertAlmostEqual(float(Frac(1,3)), 0.33333333, places=7, msg=None)
 		self.assertAlmostEqual(float(Frac(1,2)), 0.5, places=7, msg=None)
-		self.assertRaises(ZeroDivisionError, Frac.__float__, Frac(2,0))	
+
 
 	def tearDown(self): pass
 
