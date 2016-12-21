@@ -5,29 +5,28 @@
 from Queue import PriorityQueue
 
 class PriorityQueImprove(PriorityQueue):
-	#TODO
+
 	def __len__(self):
 		return len(self.queue)
-		
+	
+	def __str__(self):
+		return str(self.queue)
   
 	def increase(self, value):
-		K = PriorityQueImprove()
+		K = []
 		Z = self.get()
 		if isinstance( Z, (int, long, float)):
-			K.put(Z - value)
-			while len(self) != 0:
+			K.append(Z - value)
+			while len(self.queue) != 0:
 				Z = self.get()
-				K.put(Z - value)
-			self = K
+				K.append(Z - value)
+			self.queue = K
 		else :
-			K.put((Z[0] - value,) + Z[1:len(Z)])
-			while len(self) != 0:
-				print "KKKK"
+			K.append((Z[0] - value,) + Z[1:len(Z)])
+			while len(self.queue) != 0:
 				Z = self.get()
-				print Z[0]
-				K.put( (Z[0] - value,) + Z[1:len(Z)])
-			self = K
-  
+				K.append( (Z[0] - value,) + Z[1:len(Z)])
+			self.queue = K  
   
   
 Pr = PriorityQueImprove()
@@ -41,10 +40,6 @@ Pr.put((35,1))
 Pr.put((1,1))
 Pr.put((6,1))
   
-
+print str(Pr)
 Pr.increase(7)
-  
-  
-print Pr.get(),
-print Pr.get()
-  
+print str(Pr)
