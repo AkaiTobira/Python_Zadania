@@ -10,14 +10,18 @@ class RandomQueue:
 		self.queue = []
 		self.size = size
 
+	def __str__(self):
+		return str(self.queue)
+
 	def insert(self, item): 
 		if len(self.queue) < self.size:
 			self.queue.append(item)
 
 	def remove(self):    # zwraca losowy element
 		i = randint(0,len(self.queue)-1) 
-		j = self.queue[i]
-		del self.queue[i]
+		self.queue[i] = self.queue[len(self.queue)-1]		
+		j = self.queue[len(self.queue)-1]
+		del self.queue[len(self.queue)-1]
 		return j
 	
 
@@ -34,6 +38,7 @@ class RandomQueue:
 R = RandomQueue(20)
 for i in range(20):
 	R.insert(i)
-
+print R
 while not R.is_empty():
-	print R.remove(),
+	R.remove()
+	print R
