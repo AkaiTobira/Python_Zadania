@@ -16,16 +16,16 @@ class PriorityQueImprove(PriorityQueue):
 		K = []
 		Z = self.get()
 		if isinstance( Z, (int, long, float)):
-			K.append(Z - value)
+			K.append(Z + value)
 			while len(self.queue) != 0:
 				Z = self.get()
-				K.append(Z - value)
+				K.append(Z + value)
 			self.queue = K
 		else :
-			K.append((Z[0] - value,) + Z[1:len(Z)])
+			K.append((Z[0] + value,) + Z[1:len(Z)])
 			while len(self.queue) != 0:
 				Z = self.get()
-				K.append( (Z[0] - value,) + Z[1:len(Z)])
+				K.append( (Z[0] + value,) + Z[1:len(Z)])
 			self.queue = K  
   
   
@@ -43,3 +43,4 @@ Pr.put((6,1))
 print str(Pr)
 Pr.increase(7)
 print str(Pr)
+
