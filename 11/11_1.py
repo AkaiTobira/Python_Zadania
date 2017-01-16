@@ -1,17 +1,14 @@
 ##!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-
-from random import randint
-from random import gauss
-from random import shuffle
+import random
 import math
 
 def randomNoSort( size ):
 	L = []
 	for i in range(size):
 		L.append(i)
-	shuffle(L)
+	random.shuffle(L)
 	return L
   
 def randomAlmostSort( size ):
@@ -20,45 +17,37 @@ def randomAlmostSort( size ):
 		L.append(i)
 	
 	
-	k = randint(0,size)
 	for i in range(size-1):
-		j = randint(0,size)
-		if k > j:
-			p = i+randint(0,1)
-			temp = L[i]
-			L[i] = L[p]
-			L[p] = temp
+		if random.random() > 0.5:
+			L[i],L[i+1] = L[i+1],L[i] 
+			
 	return L
   
 def randomReverseSort( size ):
 	L = []
 	for i in range(size-1,-1,-1):
 		L.append(i)
-	k = randint(0,size)
 	for i in range(size-1):
-		j = randint(0,size)
-		if k > j:
-			p = i+randint(0,1)
-			temp = L[i]
-			L[i] = L[p]
-			L[p] = temp
+		if random.random() > 0.5:
+			L[i],L[i+1] = L[i+1],L[i] 
+			
 	return L
   
 def randomGauss( size ):
 	L = []
 	for i in range(size):
-		k = gauss(0,size)
+		k = random.gauss(0,size)
 		while k in L:
-			k = gauss(0,size)
+			k = random.gauss(0,size)
 		L.append(k)
-	shuffle(L)
+	random.shuffle(L)
 	return L
 	
 def randomMultiply( size ):
 	L = []
 	for i in range(size):
-		L.append(randint(-int(math.sqrt(size) +1)+2,int(math.sqrt(size) +1)))
-	shuffle(L)
+		L.append(random.randint(-int(math.sqrt(size) +1)+2,int(math.sqrt(size) +1)))
+	random.shuffle(L)
 	return L
  
 print randomNoSort(12)

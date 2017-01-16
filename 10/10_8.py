@@ -19,8 +19,8 @@ class RandomQueue:
 
 	def remove(self):    # zwraca losowy element
 		i = randint(0,len(self.queue)-1) 
-		self.queue[i] = self.queue[len(self.queue)-1]		
-		j = self.queue[len(self.queue)-1]
+		j = self.queue[i]
+		self.queue[i] = self.queue[len(self.queue)-1]
 		del self.queue[len(self.queue)-1]
 		return j
 	
